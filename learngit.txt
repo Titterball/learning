@@ -1,0 +1,66 @@
+提交：
+git add file
+git commit -m"message of the file"
+
+创建版本库：
+mkdir learngit（创建版本库）
+cd learngit  （令当前工作目录转移到learngit）
+pwd    （输出当前工作目录的路径）
+git init （初始化，将目录变为可管理的仓库）
+ls   （list files列出文件所有东西）
+cat readme.txt（查看readme文本的内容）
+git status （查看当前版本库状态）
+
+ 版本回退：
+git log  （查看历史记录日志）（git log --pretty=oneline简化输出）
+git reset --hard HEAD^(HEAD为当前版本，HEAD^为上一版本，HEAD^^
+        为上两个版本……HEAD~100为上100个版本）
+git reset --hard  1094a(1094a为版本号）
+git reflog  (记录了每一次命令）
+
+修改：
+git checkout -- file(撤销file在工作区的修改，回到最近一次add或commit状态）
+git reset HEAD file(可以把暂存区的修改退回到工作区）
+
+删除：
+rm file(删除工作区文件）
+git rm file(从版本库中删除文件）
+git checkout -- file(删错了工作区文件，把版本库的文件还原到工作区）
+
+远程仓库：
+ssh-keygen -t rsa -C "youremail@example.com"  (创建SSH KEY）
+git remote add origin git@github.com:MyGitHubName/learngit.git
+(把本地仓库与远程仓库关联，learngit为本地仓库名字，origin为远程仓库默认名）
+git push -u origin master  (-u把当前分支master推送到远程并和远程的master      关联，以后再推送时可以简化命令用git push origin master)
+git clone git@github.com:MyGitHubName/learngit.git  (从远程仓库克隆      learngit仓库到本地）
+
+分支：
+git branch dev(新建分支dev）
+git checkout dev (切换到分支dev)
+git checkout -b dev (新建并切换到分支dev,相当于上面两条命令合并）
+git branch (查看当前分支,并列出所有分支）
+git merge dev（合并dev分支到当前分支，通常为“fast forward模式”）
+git merge --no-ff -m"message" dev（不使用"ff模式"合并）
+git branch -d dev(删除dev分支）
+git branch -D dev(强行删除dev分支）
+git stash （储藏当前工作区）
+git stash list （查看stash内容）
+git stash apply (把stash内容恢复）
+git stash drop (把stash内容删除）
+git stash pop (把stash内容恢复同时删除stash内容，等于上面两条命令合并）
+git pull（把远程分支抓取下来合并）
+git branch --set-upstream-to=origin/<branch-name> <branch-name>
+   (对远程分支和本地分支创建链接）
+git rebase （分叉变直线……）
+
+标签：
+git tag <name>(给当前分支的最新提交的commit打上标签）
+git tag （查看所有标签）
+git tag <name> f52c623(给指定的如f52c623commit打上标签）
+git show <tagname> (查看标签信息）
+git push origin <tagname>(推送一个本地标签）
+git push origin --tags（推送所有本地标签）
+git tag -d <tagname> (删除一个本地标签）
+git push origin :refs/tags/<tagname> (删除一个远程标签）
+
+
