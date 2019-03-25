@@ -3,3 +3,13 @@
               encode（）获取对应字符编码，decode（）将编码转为对应字符
 #!/usr/bin/env python3        #告诉Linux/OS/X系统这是可执行的python程序
 # -*- coding: utf-8 -*-          #让解释器按UTF-8编码读取
+
+list和tuple：list——[ ]      #类似数组，可变，append()在结尾附加元素
+                                      #pop()删除最后元素，pop(i)删除指定位置元素
+                   tuple——( )  #不可变，要初始化，其它类似list
+dict和set:
+dict——{ }   #key-value存储，key为常量，一个key对应一个value
+                   #get(key)返回value，pop(key)删除
+set——([ ])  #类似dict，但没有value只有key，需要一个list作为输入
+                   #重复元素会过滤，add(key)添加元素，remove（key）删除元素
+                   #可看作集合，并、交集：s1&s2、s1 | s2……
