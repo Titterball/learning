@@ -13,3 +13,5 @@ dict——{ }   #key-value存储，key为常量，一个key对应一个value
 set——([ ])  #类似dict，但没有value只有key，需要一个list作为输入
                    #重复元素会过滤，add(key)添加元素，remove（key）删除元素
                    #可看作集合，并、交集：s1&s2、s1 | s2……
+切片：list[0:3]、list[:3]、list[-2:]、list[0:10:2]、list[::2]等
+	  （tuple、字符串也适用）
