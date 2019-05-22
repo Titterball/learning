@@ -3,11 +3,10 @@
 # -*- coding: utf-8 -*-          """让解释器按UTF-8编码读取"""
 ---------------------分 割 线-------------------------------------------------
 
-字符串： ord()获取字符的整数表示,chr()把编码转换为对应字符,len()获取长度
-         encode（）获取对应字符编码，decode（）将编码转为对应字符
+字符串： ord()获取字符的整数表示,chr()把编码转换为对应字符,len()获取长度，encode（）获取对应字符编码，decode（）将编码转为对应字符
 list和tuple：list——[ ]      #类似数组，可变，append()在结尾附加元素
-                                #pop()删除最后元素，pop(i)删除指定位置元素
-             tuple——( )  #不可变，要初始化，其它类似list
+								#pop()删除最后元素，pop(i)删除指定位置元素
+             tuple——( )     #不可变，要初始化，其它类似list
 dict和set:
 dict——{ }   #key-value存储，key为常量，一个key对应一个value
                    #get(key)返回value，pop(key)删除
@@ -16,8 +15,7 @@ set——([ ])  #类似dict，但没有value只有key，需要一个list作为�
                    #可看作集合，并、交集：s1&s2、s1 | s2……
 切片：list[0:3]、list[:3]、list[-2:]、list[0:10:2]、list[::2]等
 	  （tuple、字符串也适用）
-生成器(generator):  ①L=(iterable)   ②关键字yield  ；生成器可迭代
-                               next()获得下一个结果
+生成器(generator):  ①L=(iterable)   ②关键字yield  生成器可迭代，next()获得下一个结果
 迭代器(iterator)：  iter() 生成可迭代序列
 
 函数参数:  func(*args,**kwargs) *args为可变参数  **kwargs为关键字参数

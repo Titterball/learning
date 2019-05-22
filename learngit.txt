@@ -1,5 +1,5 @@
 提交：
-git add file
+git add file1 file2……
 git commit -m"message of the file"
 
 创建版本库：
