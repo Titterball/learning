@@ -1,0 +1,41 @@
+主键：是关系表中记录的唯一标识；选取主键注意不要带有业务含义，应该使用BIGINT自增或GUID类，主键也不允许 NULL
+*联合主键：关系数据库实际上还允许通过多个字段唯一标识记录，即两个或更多的字段都设置为主键，这种主键被称为联合主键。对于联合主键，允许一列有重复，只要不是所有主键列都重复即可。
+
+外键：在一个表中，通过另一个表的字段，可以把数据与另一张表关联起来，这种列称为外键。外键并不是通过列名实现的，而是通过定义外键约束实现的：
+	  
+	  ALTER TABLE students
+	  ADD CONSTRAINT fk_class_id
+	  FOREIGN KEY (class_id)
+	  REFERENCES classes (id);
+	  
+	  其中，外键约束的名称fk_class_id可以任意，FOREIGN KEY (class_id)指定了class_id作为外键，REFERENCES classes (id)指定了这个外键将关联到classes表的id列（即classes表的主键）。
+      通过定义外键约束，关系数据库可以保证无法插入无效的数据。
+	  
+	  要删除一个外键约束，也是通过ALTER TABLE实现的：
+	  ALTER TABLE students
+	  DROP FOREIGN KEY fk_class_id;
+	  注意：删除外键约束并没有删除外键这一列。删除列是通过DROP COLUMN ...实现的。
+
+索引：通过使用索引，可以让数据库系统不必扫描整个表，而是直接定位到符合条件的记录，这样就大大加快了查询速度。
+	如果要经常根据score列进行查询，就可以对score列创建索引：
+
+	ALTER TABLE students
+	ADD INDEX idx_score (score);
+	使用ADD INDEX idx_score (score)就创建了一个名称为idx_score，使用列score的索引。
+	索引名称是任意的，索引如果有多列，可以在括号里依次写上，例如：
+
+	ALTER TABLE students
+	ADD INDEX idx_name_score (name, score);
+	索引的效率取决于索引列的值是否散列，即该列的值如果越互不相同，那么索引效率越高。
+*唯一索引：
+	我们假设students表的name不能重复：
+
+	ALTER TABLE students
+	ADD UNIQUE INDEX uni_name (name);
+	通过UNIQUE关键字我们就添加了一个唯一索引。
+	也可以只对某一列添加一个唯一约束而不创建唯一索引：
+
+	ALTER TABLE students
+	ADD CONSTRAINT uni_name UNIQUE (name);
+	这种情况下，name列没有索引，但仍然具有唯一性保证。
+(索引优点：查询快；索引缺点：索引越多，插入和更新的速度越慢)
